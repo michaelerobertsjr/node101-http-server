@@ -2,7 +2,7 @@ var nightmare = require('nightmare');
 var expect = require('chai').expect;
 var axios = require('axios');
 
-var nightmare;
+var n;
 const url = 'http://localhost:8080';
 
 describe('hello-express', function () {
@@ -10,11 +10,11 @@ describe('hello-express', function () {
   this.slow(3000);
 
   beforeEach(()=> {
-    nightmare = Nightmare();
+    n = nightmare();
   })
 
   it('should have the correct page title', () =>
-    nightmare
+    n
       .goto(url)
       .evaluate(function () {
         return document.querySelector('body').innerText
